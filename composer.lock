@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24fa6186dd3633dae973002f7ad9702c",
+    "content-hash": "5cb98da42a341ae804061b7fdea909b6",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -693,6 +693,45 @@
             ],
             "description": "belajar",
             "time": "2021-03-05T11:55:24+00:00"
+        },
+        {
+            "name": "ersaazis/usermanagement",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ersaazis/usermanagement.git",
+                "reference": "17369425ebb33eaa935347b9edd987263dc04c0e"
+            },
+            "require": {
+                "ersaazis/cb": "1.*",
+                "laravel/framework": "^5.7|^5.8|^6.0|^7.0",
+                "php": "^7.1.3"
+            },
+            "default-branch": true,
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ersaazis\\usermanagement\\UserManagementServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ersaazis\\usermanagement\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ersaazis",
+                    "email": "eam24maret@gmail.com"
+                }
+            ],
+            "description": "Package UserManagement",
+            "time": "2021-03-05T16:18:37+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -1872,25 +1911,25 @@
         },
         {
             "name": "psr/container",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+                "reference": "9fc7aab7a78057a124384358ebae8a1711b6f6fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/9fc7aab7a78057a124384358ebae8a1711b6f6fc",
+                "reference": "9fc7aab7a78057a124384358ebae8a1711b6f6fc",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=7.2.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -1905,7 +1944,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common Container Interface (PHP FIG PSR-11)",
@@ -1919,9 +1958,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-fig/container/issues",
-                "source": "https://github.com/php-fig/container/tree/master"
+                "source": "https://github.com/php-fig/container/tree/1.1.0"
             },
-            "time": "2017-02-14T16:28:37+00:00"
+            "time": "2021-03-05T15:48:30+00:00"
         },
         {
             "name": "psr/http-message",
@@ -2292,16 +2331,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v6.2.5",
+            "version": "v6.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "698a6a9f54d7eb321274de3ad19863802c879fb7"
+                "reference": "d2791ff0b73247cdc2096b14f5580aba40c12bff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/698a6a9f54d7eb321274de3ad19863802c879fb7",
-                "reference": "698a6a9f54d7eb321274de3ad19863802c879fb7",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/d2791ff0b73247cdc2096b14f5580aba40c12bff",
+                "reference": "d2791ff0b73247cdc2096b14f5580aba40c12bff",
                 "shasum": ""
             },
             "require": {
@@ -2351,7 +2390,7 @@
             ],
             "support": {
                 "issues": "https://github.com/swiftmailer/swiftmailer/issues",
-                "source": "https://github.com/swiftmailer/swiftmailer/tree/v6.2.5"
+                "source": "https://github.com/swiftmailer/swiftmailer/tree/v6.2.6"
             },
             "funding": [
                 {
@@ -2363,7 +2402,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-12T09:35:59+00:00"
+            "time": "2021-03-05T12:08:49+00:00"
         },
         {
             "name": "symfony/console",
@@ -7195,7 +7234,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "ersaazis/usermanagement": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
