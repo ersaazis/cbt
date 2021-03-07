@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['middleware' => ['web'], 'namespace' => '\App\Http\Controllers\Crud'], function () {
+    cb()->routePost('login', "AdminAuthController@postLoginWB");
+    cb()->routeGet('login', "AdminAuthController@getLoginWB");
+});

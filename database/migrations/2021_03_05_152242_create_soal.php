@@ -20,10 +20,14 @@ class CreateSoal extends Migration
             $table->string('video')->nullable();
             $table->text('jawaban');
             $table->text('tipe_jawaban');
-            $table->string('pilihan_a');
-            $table->string('pilihan_b');
-            $table->string('pilihan_c');
-            $table->string('pilihan_d');
+            $table->string('pilihan_a')->nullable();
+            $table->string('pilihan_b')->nullable();
+            $table->string('pilihan_c')->nullable();
+            $table->string('pilihan_d')->nullable();
+            $table->string('gambar_pilihan_a')->nullable();
+            $table->string('gambar_pilihan_b')->nullable();
+            $table->string('gambar_pilihan_c')->nullable();
+            $table->string('gambar_pilihan_d')->nullable();
             $table->unsignedBigInteger('paket_ujian_id')->nullable();
             $table->foreign('paket_ujian_id')->references('id')->on('paket_ujian')->onDelete('cascade');
             $table->unsignedBigInteger('mapel_id')->nullable();
