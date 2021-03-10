@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRapotUser extends Migration
+class CreateJadwalUjian extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateRapotUser extends Migration
      */
     public function up()
     {
-        Schema::create('rapot_user', function (Blueprint $table) {
+        Schema::create('jadwal_ujian', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('mapel_id')->unique();
             $table->foreign('mapel_id')->references('id')->on('mapel')->onDelete('cascade');
-            $table->float('nilai');
+            $table->unsignedBigInteger('paket_ujian_id')->unique();
+            $table->foreign('paket_ujian_id')->references('id')->on('paket_ujian')->onDelete('cascade');
+            $table->dateTime('tanggal');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateRapotUser extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rapot_user');
+        Schema::dropIfExists('jadwal_ujian');
     }
 }

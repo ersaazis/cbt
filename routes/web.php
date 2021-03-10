@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['middleware' => ['web'], 'namespace' => '\App\Http\Controllers\Crud'], function () {
-    cb()->routePost('login', "AdminAuthController@postLoginWB");
-    cb()->routeGet('login', "AdminAuthController@getLoginWB");
+    cb()->routePost('wb/login', "AdminAuthController@postLoginWB");
+    cb()->routeGet('wb/login', "AdminAuthController@getLoginWB");
+    cb()->routePost('pemeriksa/login', "AdminAuthController@postLoginPKBM");
+    cb()->routeGet('pemeriksa/login', "AdminAuthController@getLoginPKBM");
+});
+Route::group(['middleware' => ['web'], 'prefix' => cb()->getAdminPath(), 'namespace' => '\App\Http\Controllers'], function () {
+    cb()->routeGet('/ujian', "UjianController@index");
+    cb()->routePost('/ujian', "UjianController@simpan");
 });

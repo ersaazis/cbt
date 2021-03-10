@@ -15,7 +15,7 @@ class AddWbToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('nisn')->nullable()->unique();
-            $table->unsignedBigInteger('lembaga_pkbm_id')->nullable();
+            $table->unsignedBigInteger('lembaga_pkbm_id')->nullable()->unique();
             $table->foreign('lembaga_pkbm_id')->references('id')->on('lembaga_pkbm')->onDelete('cascade');
             $table->unsignedBigInteger('paket_ujian_id')->nullable();
             $table->foreign('paket_ujian_id')->references('id')->on('paket_ujian')->onDelete('cascade');

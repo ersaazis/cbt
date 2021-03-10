@@ -6,22 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $user_id
  * @property integer $mapel_id
- * @property float $nilai
+ * @property integer $paket_ujian_id
+ * @property string $tanggal
  * @property string $created_at
  * @property string $updated_at
  * @property Mapel $mapel
- * @property User $user
+ * @property PaketUjian $paketUjian
  */
-class RapotUser extends Model
+class JadwalUjian extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'rapot_user';
+    protected $table = 'jadwal_ujian';
 
     /**
      * The "type" of the auto-incrementing ID.
@@ -33,7 +33,7 @@ class RapotUser extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'mapel_id', 'nilai', 'photo', 'created_at', 'updated_at'];
+    protected $fillable = ['mapel_id', 'paket_ujian_id', 'tanggal', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -46,8 +46,8 @@ class RapotUser extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function paketUjian()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\PaketUjian');
     }
 }
