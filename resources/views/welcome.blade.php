@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    UPK Garut
+                    UPK GARUT
                 </div>
 
                 <div class="links">
