@@ -21,12 +21,12 @@
             $div=null;
             $div_close=null;
         @endphp
-        @if($column->getName() == 'gambar_pilihan_a' || $column->getName() == 'gambar_pilihan_b' || $column->getName() == 'gambar_pilihan_c' || $column->getName() == 'gambar_pilihan_d')
+        @if($column->getName() == 'gambar_pilihan_a' || $column->getName() == 'gambar_pilihan_b' || $column->getName() == 'gambar_pilihan_c' || $column->getName() == 'gambar_pilihan_d' || $column->getName() == 'gambar_pilihan_e')
             @php
                 $div='<div class="image_type">';
                 $div_close='</div>';
             @endphp
-        @elseif($column->getName() == 'pilihan_a' || $column->getName() == 'pilihan_b' || $column->getName() == 'pilihan_c' || $column->getName() == 'pilihan_d')
+        @elseif($column->getName() == 'pilihan_a' || $column->getName() == 'pilihan_b' || $column->getName() == 'pilihan_c' || $column->getName() == 'pilihan_d' || $column->getName() == 'pilihan_e')
             @php
                 $div='<div class="text_type">';
                 $div_close='</div>';

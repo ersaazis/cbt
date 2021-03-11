@@ -15,15 +15,21 @@ class UjianController extends Controller
 {
     public function index(){
         $jadwal=JadwalUjian::where('paket_ujian_id',cb()->session()->user()->paket_ujian_id)->where('tanggal','<',Carbon::now())->first();
-        if($jadwal && (Carbon::make($jadwal->tanggal)->addMinutes(60) > Carbon::now())){
-            $data = [];
-            $data['page_title'] = "Ujian ".$jadwal->mapel->nama;
-            if(RapotUser::where('mapel_id',$jadwal->mapel_id)->where('user_id',cb()->session()->id())->count() == 0){
-                $data['mapel_id'] = $jadwal->mapel_id;
-                $data['soal'] = (SoalPg::where('paket_ujian_id',cb()->session()->user()->paket_ujian_id)->where('mapel_id',$jadwal->mapel->id)->get());
-                $data['essai'] = (SoalEssai::where('paket_ujian_id',cb()->session()->user()->paket_ujian_id)->where('mapel_id',$jadwal->mapel->id)->get());
-                return view("ujian.soal", $data);
-            } else return cb()->redirect(cb()->getAdminPath(),'Anda sudah menyalesaikan ujian '.$jadwal->mapel->nama.' hari ini');
+        if($jadwal){
+            $jurusan=$jadwal->mapel->jurusan;
+            if($jurusan == cb()->session()->user()->jurusan or $jurusan == null){
+                if(Carbon::make($jadwal->tanggal)->addMinutes(30) > Carbon::now()){
+                    $data = [];
+                    $data['page_title'] = "Ujian ".$jadwal->mapel->nama;
+                    if(RapotUser::where('mapel_id',$jadwal->mapel_id)->where('user_id',cb()->session()->id())->count() == 0){
+                        $data['mapel_id'] = $jadwal->mapel_id;
+                        $data['tanggal_mulai'] = Carbon::make($jadwal->tanggal)->addMinutes(120);
+                        $data['soal'] = (SoalPg::where('paket_ujian_id',cb()->session()->user()->paket_ujian_id)->where('mapel_id',$jadwal->mapel->id)->inRandomOrder()->get());
+                        $data['essai'] = (SoalEssai::where('paket_ujian_id',cb()->session()->user()->paket_ujian_id)->where('mapel_id',$jadwal->mapel->id)->inRandomOrder()->get());
+                        return view("ujian.soal", $data);
+                    } else return cb()->redirect(cb()->getAdminPath(),'Anda sudah menyalesaikan ujian '.$jadwal->mapel->nama.' hari ini');
+                } else return cb()->redirect(cb()->getAdminPath(),'Tidak ada jadwal ujian saat ini');
+            } else return cb()->redirect(cb()->getAdminPath(),'Tidak ada jadwal ujian saat ini');
         } else return cb()->redirect(cb()->getAdminPath(),'Waktu ujian telah selesai');
     }
     public function simpan(Request $request){
@@ -61,13 +67,13 @@ class UjianController extends Controller
                         }
                     }
                 }
-            $photo = $request->file('foto')->store('images', 'public');
+            // $photo = $request->file('foto')->store('images', 'public');
             $nilai=($benar/$total)*100;
             RapotUser::create([
                 'user_id'=>cb()->session()->id(),
                 'mapel_id'=>$mapel_id,
                 'nilai'=>$nilai,
-                'photo'=>$photo,
+                // 'photo'=>$photo,
             ]);
             $data = [];
             $data['page_title'] = "Hasil Ujian";

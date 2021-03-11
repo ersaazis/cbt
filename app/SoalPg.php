@@ -42,7 +42,7 @@ class SoalPg extends Model
     /**
      * @var array
      */
-    protected $fillable = ['paket_ujian_id', 'mapel_id', 'soal', 'gambar', 'video', 'jawaban', 'tipe_jawaban', 'pilihan_a', 'pilihan_b', 'pilihan_c', 'pilihan_d', 'created_at', 'updated_at'];
+    protected $fillable = ['paket_ujian_id', 'mapel_id', 'soal', 'gambar', 'video', 'jawaban', 'tipe_jawaban', 'pilihan_a', 'pilihan_b', 'pilihan_c', 'pilihan_d', 'pilihan_e', 'created_at', 'updated_at'];
     protected $appends = [
         'mapel_nama','paket_ujian_nama',
     ];

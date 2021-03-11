@@ -5,20 +5,24 @@
         <div class="col-sm-4 col-sm-offset-4">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Upload Foto Saat ini</h3>
+                    {{-- <h3 class="box-title">Upload Foto Saat ini</h3> --}}
+                    <h3 class="box-title">Apakah anda sudah siap?</h3>
                 </div>
-                <div class="box-body">
+                {{-- <div class="box-body">
                     <div class="form-group">
                         <input type="file" name="foto" id="foto" accept="image/*;capture=camera">
                     </div>
-                </div>
+                </div> --}}
                 <div class="box-footer">
-                    <a onclick="simpanFoto()" class="btn btn-primary pull-right">Simpan</a>
+                    <a onclick="simpanFoto()" class="btn btn-primary pull-right">Mulai</a>
+                    {{-- <a onclick="simpanFoto()" class="btn btn-primary pull-right">Simpan</a> --}}
                 </div>
             </div>
         </div>
     </div>
-    <div class="row" id="layout_soal" style="display: none">
+    <div class="row" id="layout_soal" 
+    style="display: none"
+    >
         <div class="col-sm-4">
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -94,6 +98,12 @@
                                 </span>
                                 <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">D . {{$item->pilihan_d}}</span>
                             </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="e" name="jawaban_pg[{{$item->id}}]">
+                                </span>
+                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">E . {{$item->pilihan_e}}</span>
+                            </div>
                             @endif
                             {{-- Jabawan Gambar --}}
                             @if ($item->tipe_jawaban == 'gambar')
@@ -101,25 +111,31 @@
                                 <span class="input-group-addon">
                                 <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="a" name="jawaban_pg[{{$item->id}}]">
                                 </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">A . <img src="{{url($item->gambar_pilihan_a)}}" width="50%"></span>
+                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">A . @if($item->gambar_pilihan_a) <img src="{{url($item->gambar_pilihan_a)}}" width="50%"> @endif </span>
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                 <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="b" name="jawaban_pg[{{$item->id}}]">
                                 </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">B . <img src="{{url($item->gambar_pilihan_b)}}" width="50%"></span>
+                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">B . @if($item->gambar_pilihan_b) <img src="{{url($item->gambar_pilihan_b)}}" width="50%"> @endif </span>
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                 <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="c" name="jawaban_pg[{{$item->id}}]">
                                 </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">C . <img src="{{url($item->gambar_pilihan_c)}}" width="50%"></span>
+                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">C . @if($item->gambar_pilihan_c) <img src="{{url($item->gambar_pilihan_c)}}" width="50%"> @endif </span>
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                 <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="d" name="jawaban_pg[{{$item->id}}]">
                                 </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">D . <img src="{{url($item->gambar_pilihan_d)}}" width="50%"></span>
+                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">D . @if($item->gambar_pilihan_d) <img src="{{url($item->gambar_pilihan_d)}}" width="50%"> @endif </span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="e" name="jawaban_pg[{{$item->id}}]">
+                                </span>
+                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">E . @if($item->gambar_pilihan_e) <img src="{{url($item->gambar_pilihan_e)}}" width="50%"> @endif </span>
                             </div>
                             @endif
                         </div>
@@ -199,19 +215,19 @@
         var d_time=null;
         var d_cek_validasi=true;
         function simpanFoto(){
-            var inp = document.getElementById('foto');
-            if(inp.files.length === 0){
-                alert("Anda Wajib Upload Foto Terbaru");
-                inp.focus();
-                return false;
-            }
-            if(inp.files[0].type == 'image/png' || inp.files[0].type == 'image/jpg' ){
+            // var inp = document.getElementById('foto');
+            // if(inp.files.length === 0){
+            //     alert("Anda Wajib Upload Foto Terbaru");
+            //     inp.focus();
+            //     return false;
+            // }
+            // if(inp.files[0].type == 'image/png' || inp.files[0].type == 'image/jpg' ){
                 $('#layout_foto').hide();
                 $('#layout_soal').show();
                 $('.sidebar-toggle').click();
 
-                var countDownDate = new Date();
-                countDownDate.setMinutes(countDownDate.getMinutes()+1);
+                var countDownDate = new Date("{{$tanggal_mulai}}");
+                countDownDate.setMinutes(countDownDate.getMinutes());
                 var x = setInterval(function() {
                 var now = new Date().getTime();
                 var distance = countDownDate - now;
@@ -228,9 +244,9 @@
                 }, 1000);
 
                 return false;
-            }
-            alert("File harus png/jpg");
-            inp.focus();
+            // }
+            // alert("File harus png/jpg");
+            // inp.focus();
         }
         function soal(no){
             $('.button').removeClass('active');
