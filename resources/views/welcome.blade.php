@@ -86,7 +86,7 @@
 
                 <div class="links">
                     <a href="{{url('wb/login')}}">Warga Belajar</a>
-                    <a href="{{url('pemeriksa/login')}}">Pemeriksa</a>
+                    <a href="{{url('pemeriksa/login')}}">Pemeriksa/Pengawas (PKBM)</a>
                     <a href="{{url('cbt/login')}}">Penyusun Soal</a>
                     <a href="{{url('cbt/login')}}">Disdik</a>
                 </div>

@@ -13,7 +13,7 @@
         {!! csrf_field() !!}
         <div class="form-group has-feedback">
             <label for="">NISN</label>
-            <input autocomplete='off' type="text" class="form-control" name='nisn' required placeholder="Masukan NISM"/>
+            <input autocomplete='off' type="text" class="form-control" name='nisn' required placeholder="Masukan NISN"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div style="margin-bottom:10px" class='row'>

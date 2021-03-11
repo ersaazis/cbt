@@ -16,21 +16,34 @@ class AdminMataPelajaranController extends CBController {
         $this->addText("Nama","nama")->strLimit(150)->maxLength(255);
 		$this->addSelectOption("Jurusan","jurusan")->options(['IPA'=>'IPA','IPS'=>'IPS',null=>'Tidak Ada']);
 		
-        $this->addCustom('Soal PG','primary_key')->indexDisplayTransform(function($mapel_id) {
+        $this->addText('Soal PG','id')->indexDisplayTransform(function($mapel_id) {
             $soal=SoalPg::where('mapel_id',$mapel_id)->count();
             return $soal;
         })->detailDisplayTransform(function($mapel_id) {
             $soal=SoalPg::where('mapel_id',$mapel_id)->count();
             return $soal;
-        })->showEdit(false)->showAdd(false);
+        })->showEdit(false)->showAdd(false)->defaultValue(null);
 
-        $this->addCustom('Soal Essai','primary_key')->indexDisplayTransform(function($mapel_id) {
+        $this->addText('Soal Essai','id')->indexDisplayTransform(function($mapel_id) {
             $soal=SoalEssai::where('mapel_id',$mapel_id)->count();
             return $soal;
         })->detailDisplayTransform(function($mapel_id) {
             $soal=SoalEssai::where('mapel_id',$mapel_id)->count();
             return $soal;
-        })->showEdit(false)->showAdd(false);
+        })->showEdit(false)->showAdd(false)->defaultValue(null);
 
+        $this->addSubModule("Pilihan Ganda", AdminSoalPgController::class, "mapel_id", function ($row) {
+            return [
+              "ID"=> $row->primary_key,
+              "Nama"=> $row->nama
+            ];
+        });
+
+        $this->addSubModule("Essai", AdminSoalPgController::class, "mapel_id", function ($row) {
+            return [
+              "ID"=> $row->primary_key,
+              "Nama"=> $row->nama
+            ];
+        });
     }
 }

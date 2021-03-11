@@ -38,7 +38,7 @@
                     ?>
                     @foreach(columnSingleton()->getAddEditColumns() as $index=>$column)
                         @if( (cb()->getCurrentMethod()=="getAdd" && $column->getShowAdd()) || (cb()->getCurrentMethod()=="getEdit" && $column->getShowEdit()))
-                            @if($column->getName() == 'tipe_jawaban' || $column->getName() == 'pilihan_a' || $column->getName() == 'pilihan_b' || $column->getName() == 'pilihan_c' || $column->getName() == 'pilihan_d')
+                            @if($column->getName() == 'tipe_jawaban' || $column->getName() == 'pilihan_a' || $column->getName() == 'pilihan_b' || $column->getName() == 'pilihan_c' || $column->getName() == 'pilihan_d' || $column->getName() == 'pilihan_e')
                                 @php
                                     continue;
                                 @endphp
