@@ -31,7 +31,7 @@ class LembagaPkbm extends Model
     /**
      * @var array
      */
-    protected $fillable = ['pkbm', 'npsn', 'created_at', 'updated_at'];
+    protected $fillable = ['pkbm', 'npsn', 'created_at', 'updated_at' ,'punya_akun'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

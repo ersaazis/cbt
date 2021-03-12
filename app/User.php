@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function pkbm()
     {
-        return $this->belongsTo('App\LembagaPkbm');
+        return $this->belongsTo('App\LembagaPkbm','lembaga_pkbm_id');
     }
 }

@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\LembagaPkbm;
+use App\User;
 use ersaazis\cb\controllers\CBController;
 use Illuminate\Support\Facades\Hash;
 
@@ -27,6 +28,8 @@ class AdminPemeriksaController extends CBController {
         })->showEdit(false)->showAdd(false);
 
         $this->hookBeforeUpdate(function($data, $id) {
+            User::find($id)->pkbm->update(['punya_akun'=>0]);
+
             $lembaga=LembagaPkbm::find($data['lembaga_pkbm_id']);
             $lembaga->punya_akun = 1;
             $lembaga->save();
