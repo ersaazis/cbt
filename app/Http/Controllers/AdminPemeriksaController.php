@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminPemeriksaController extends CBController {
 
-
     public function cbInit()
     {
         $this->setTable("users");
@@ -17,7 +16,7 @@ class AdminPemeriksaController extends CBController {
 		$this->addCustom("Password","password",'password')->required(cb()->getCurrentMethod() == "getAdd"?true:false)->setHtml('
             <input type="text" title="Password" maxlength="255" class="form-control" '.(cb()->getCurrentMethod() == "getAdd"?"required":"").' name="password" id="password" placeholder="'.(cb()->getCurrentMethod() == "getAdd"?"":"Enter a new password").'">
         ')->validation('required')->showIndex(false)->showDetail(false);
-		$this->addSelectTable("Lembaga Pkbm","lembaga_pkbm_id",["table"=>"lembaga_pkbm","value_option"=>"id","display_option"=>"pkbm","sql_condition"=>""])->filterable(true);
+		$this->addSelectTable("Lembaga Pkbm","lembaga_pkbm_id",["table"=>"lembaga_pkbm","value_option"=>"id","display_option"=>"pkbm","sql_condition"=>(cb()->getCurrentMethod() == "getAdd"?"punya_akun=0":"")])->filterable(true);
 
         $this->addCustom('NPSN','lembaga_pkbm_id')->indexDisplayTransform(function($id) {
             $lembaga=LembagaPkbm::find($id);
@@ -28,12 +27,20 @@ class AdminPemeriksaController extends CBController {
         })->showEdit(false)->showAdd(false);
 
         $this->hookBeforeUpdate(function($data, $id) {
+            $lembaga=LembagaPkbm::find($data['lembaga_pkbm_id']);
+            $lembaga->punya_akun = 1;
+            $lembaga->save();
+
             $data['cb_roles_id'] = 3;
             if(request('password')) $data['password'] = Hash::make(request('password'));
             else unset($data['password']);
             return $data;
         });
         $this->hookBeforeInsert(function($data) {
+            $lembaga=LembagaPkbm::find($data['lembaga_pkbm_id']);
+            $lembaga->punya_akun = 1;
+            $lembaga->save();
+            
             $data['cb_roles_id'] = 3;
             $data['password'] = Hash::make(request('password'));
             return $data;

@@ -657,7 +657,7 @@
         },
         {
             "name": "ersaazis/cb",
-            "version": "1.9.2",
+            "version": "1.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ersaazis/cb.git",
