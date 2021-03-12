@@ -13,10 +13,12 @@ class UpdateJadwalUjian extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::table('jadwal_ujian', function (Blueprint $table) {
             $table->dropUnique('jadwal_ujian_mapel_id_unique');
             $table->dropUnique('jadwal_ujian_paket_ujian_id_unique');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
