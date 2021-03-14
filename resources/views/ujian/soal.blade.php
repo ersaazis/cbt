@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <p>{{$item->soal}}</p>
+                            <p>{!! $item->soal !!}</p>
                             @if ($item->video)
                                 <div class="video">{!!$item->video!!}</div>
                             @endif
@@ -168,7 +168,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <p>{{$item->soal}}</p>
+                            <p>{!! $item->soal !!}</p>
                             @if ($item->video)
                                 <div class="video">{!!$item->video!!}</div>
                             @endif
@@ -208,9 +208,10 @@
 @endsection
 @push('bottom')
     <script>
+    $.get( "/cbt/update/");
     setInterval(function() {
         $.get( "/cbt/update/");
-    }, 5 * 1000);
+    }, 60 * 1000);
     </script>
 @endpush
 @push('bottom')

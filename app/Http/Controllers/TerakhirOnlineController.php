@@ -21,4 +21,13 @@ class TerakhirOnlineController extends Controller
             $status='<span data-id="'.$id.'" class="status btn btn-xs btn-success">Online</span>';
         return $status;
     }
+    public function persentase(){
+        $user=User::where('cb_roles_id',2);
+        $jUser=$user->count();
+        if($jUser){
+            $onlineUser=$user->where('terakhir_online','>',Carbon::now()->subMinute(2))->count();
+            return ($onlineUser/$jUser)*100;
+        }
+        return 0;
+    }
 }

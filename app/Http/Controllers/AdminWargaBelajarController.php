@@ -48,8 +48,12 @@ class AdminWargaBelajarController extends CBController {
 
             return $query;
         });
+        $this->setBeforeIndexTable(view('wargabelajar.index_before')->render());
         $this->javascript(function(){
             return '
+            $.get( "/cbt/persentase", function( data ) {
+                $("#LoginWarga").html(data);
+            });
             setInterval(function() {
                 $(".status").each(function(){
                     var id=$(this).attr("data-id");
@@ -57,7 +61,10 @@ class AdminWargaBelajarController extends CBController {
                     $.get( "/cbt/cek/"+id, function( data ) {
                         $button.html(data);
                     });
-                })
+                });
+                $.get( "/cbt/persentase", function( data ) {
+                    $("#LoginWarga").html(data);
+                });
             }, 5 * 1000);
             ';
         });

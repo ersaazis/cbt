@@ -12,7 +12,7 @@ class AdminSoalPgController extends CBController {
         $this->setPermalink("soal_pg");
         $this->setPageTitle("Soal Pilihan Ganda");
 
-        $this->addText("Soal","soal")->strLimit(150)->maxLength(255);
+        $this->addWysiwyg("Soal","soal");
 		$this->addImage("Gambar","gambar")->required(false)->encrypt(true);
 		$this->addText("Video","video")->required(false)->strLimit(150)->maxLength(255);
 		$this->addSelectOption("Jawaban Benar","jawaban")->options(['A'=>'A','B'=>'B','C'=>'C','D'=>'D','E'=>'E']);

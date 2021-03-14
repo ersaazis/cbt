@@ -25,4 +25,5 @@ Route::group(['middleware' => ['web'], 'prefix' => cb()->getAdminPath(), 'namesp
     cb()->routePost('/ujian', "UjianController@simpan");
     cb()->routeGet('/update', "TerakhirOnlineController@update");
     cb()->routeGet('/cek/{id}', "TerakhirOnlineController@cek");
+    cb()->routeGet('/persentase', "TerakhirOnlineController@persentase");
 });

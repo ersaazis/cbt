@@ -44,8 +44,9 @@
 @endsection
 @push('bottom')
     <script>
+    $.get( "/cbt/update/");
     setInterval(function() {
         $.get( "/cbt/update/");
-    }, 5 * 1000);
+    }, 60 * 1000);
     </script>
 @endpush
