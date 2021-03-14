@@ -26,7 +26,7 @@ class TerakhirOnlineController extends Controller
         $jUser=$user->count();
         if($jUser){
             $onlineUser=$user->where('terakhir_online','>',Carbon::now()->subMinute(2))->count();
-            return ($onlineUser/$jUser)*100;
+            return number_format(($onlineUser/$jUser)*100,3);
         }
         return 0;
     }
