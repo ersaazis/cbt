@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $nilai
  * @property string $created_at
  * @property string $updated_at
+ * @property string $photo
  * @property Mapel $mapel
  * @property User $user
  */
@@ -33,7 +34,7 @@ class RapotUser extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'mapel_id', 'nilai', 'photo', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'mapel_id', 'nilai', 'created_at', 'updated_at', 'photo'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

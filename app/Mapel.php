@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $nama
  * @property string $created_at
  * @property string $updated_at
- * @property RapotUser[] $rapotUsers
+ * @property string $jurusan
+ * @property RapotUser $rapotUser
  * @property SoalEssai[] $soalEssais
  * @property SoalPg[] $soalPgs
  */
@@ -32,14 +33,14 @@ class Mapel extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'updated_at'];
+    protected $fillable = ['nama', 'created_at', 'updated_at', 'jurusan'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function rapotUsers()
+    public function rapotUser()
     {
-        return $this->hasMany('App\RapotUser');
+        return $this->hasOne('App\RapotUser', 'mapel_id');
     }
 
     /**

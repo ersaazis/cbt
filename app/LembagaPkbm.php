@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $npsn
  * @property string $created_at
  * @property string $updated_at
+ * @property boolean $punya_akun
  * @property User[] $users
  */
 class LembagaPkbm extends Model
@@ -31,7 +32,7 @@ class LembagaPkbm extends Model
     /**
      * @var array
      */
-    protected $fillable = ['pkbm', 'npsn', 'created_at', 'updated_at' ,'punya_akun'];
+    protected $fillable = ['pkbm', 'npsn', 'created_at', 'updated_at', 'punya_akun'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

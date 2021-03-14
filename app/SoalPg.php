@@ -17,8 +17,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $pilihan_b
  * @property string $pilihan_c
  * @property string $pilihan_d
+ * @property string $gambar_pilihan_a
+ * @property string $gambar_pilihan_b
+ * @property string $gambar_pilihan_c
+ * @property string $gambar_pilihan_d
  * @property string $created_at
  * @property string $updated_at
+ * @property string $pilihan_e
+ * @property string $gambar_pilihan_e
  * @property Mapel $mapel
  * @property PaketUjian $paketUjian
  * @property JawabanUser[] $jawabanUsers
@@ -42,16 +48,8 @@ class SoalPg extends Model
     /**
      * @var array
      */
-    protected $fillable = ['paket_ujian_id', 'mapel_id', 'soal', 'gambar', 'video', 'jawaban', 'tipe_jawaban', 'pilihan_a', 'pilihan_b', 'pilihan_c', 'pilihan_d', 'pilihan_e', 'created_at', 'updated_at'];
-    protected $appends = [
-        'mapel_nama','paket_ujian_nama',
-    ];
-    public function getMapelNamaAttribute(){
-        return $this->mapel()->first()->nama;
-    }
-    public function getPaketUjianNamaAttribute(){
-        return $this->paketUjian()->first()->nama;
-    }
+    protected $fillable = ['paket_ujian_id', 'mapel_id', 'soal', 'gambar', 'video', 'jawaban', 'tipe_jawaban', 'pilihan_a', 'pilihan_b', 'pilihan_c', 'pilihan_d', 'gambar_pilihan_a', 'gambar_pilihan_b', 'gambar_pilihan_c', 'gambar_pilihan_d', 'created_at', 'updated_at', 'pilihan_e', 'gambar_pilihan_e'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

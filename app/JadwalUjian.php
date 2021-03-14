@@ -11,8 +11,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $tanggal
  * @property string $created_at
  * @property string $updated_at
- * @property Mapel $mapel
- * @property PaketUjian $paketUjian
  */
 class JadwalUjian extends Model
 {
@@ -35,19 +33,4 @@ class JadwalUjian extends Model
      */
     protected $fillable = ['mapel_id', 'paket_ujian_id', 'tanggal', 'created_at', 'updated_at'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function mapel()
-    {
-        return $this->belongsTo('App\Mapel');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function paketUjian()
-    {
-        return $this->belongsTo('App\PaketUjian');
-    }
 }
