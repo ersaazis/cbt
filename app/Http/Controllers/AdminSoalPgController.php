@@ -20,13 +20,13 @@ class AdminSoalPgController extends CBController {
 		$this->addText("Pilihan A","pilihan_a")->showIndex(false)->strLimit(150)->maxLength(255);
 		$this->addText("Pilihan B","pilihan_b")->showIndex(false)->strLimit(150)->maxLength(255);
 		$this->addText("Pilihan C","pilihan_c")->showIndex(false)->strLimit(150)->maxLength(255);
-		$this->addText("Pilihan D","pilihan_d")->showIndex(false)->strLimit(150)->maxLength(255);
-		$this->addText("Pilihan E","pilihan_e")->showIndex(false)->strLimit(150)->maxLength(255);
+		$this->addText("Pilihan D","pilihan_d")->required(false)->showIndex(false)->strLimit(150)->maxLength(255);
+		$this->addText("Pilihan E","pilihan_e")->required(false)->showIndex(false)->strLimit(150)->maxLength(255);
 		$this->addImage("Pilihan A","gambar_pilihan_a")->showIndex(false)->encrypt(true);
 		$this->addImage("Pilihan B","gambar_pilihan_b")->showIndex(false)->encrypt(true);
 		$this->addImage("Pilihan C","gambar_pilihan_c")->showIndex(false)->encrypt(true);
-		$this->addImage("Pilihan D","gambar_pilihan_d")->showIndex(false)->encrypt(true);
-		$this->addImage("Pilihan E","gambar_pilihan_e")->showIndex(false)->encrypt(true);
+		$this->addImage("Pilihan D","gambar_pilihan_d")->required(false)->showIndex(false)->encrypt(true);
+		$this->addImage("Pilihan E","gambar_pilihan_e")->required(false)->showIndex(false)->encrypt(true);
 		$this->addSelectTable("Mata Pelajaran","mapel_id",["table"=>"mapel","value_option"=>"id","display_option"=>"nama","sql_condition"=>""])->filterable(true);
 		$this->addSelectTable("Paket Ujian","paket_ujian_id",["table"=>"paket_ujian","value_option"=>"id","display_option"=>"nama","sql_condition"=>""])->filterable(true);
     }

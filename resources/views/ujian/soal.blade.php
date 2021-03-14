@@ -74,69 +74,77 @@
                             <br>
                             {{-- Jabawan Text --}}
                             @if ($item->tipe_jawaban == 'text')
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="a" name="jawaban_pg[{{$item->id}}]">
-                                </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">A . {{$item->pilihan_a}}</span>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="b" name="jawaban_pg[{{$item->id}}]">
-                                </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">B . {{$item->pilihan_b}}</span>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="c" name="jawaban_pg[{{$item->id}}]">
-                                </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">C . {{$item->pilihan_c}}</span>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="d" name="jawaban_pg[{{$item->id}}]">
-                                </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">D . {{$item->pilihan_d}}</span>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="e" name="jawaban_pg[{{$item->id}}]">
-                                </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">E . {{$item->pilihan_e}}</span>
-                            </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="a" name="jawaban_pg[{{$item->id}}]">
+                                    </span>
+                                    <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">A . {{$item->pilihan_a}}</span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="b" name="jawaban_pg[{{$item->id}}]">
+                                    </span>
+                                    <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">B . {{$item->pilihan_b}}</span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="c" name="jawaban_pg[{{$item->id}}]">
+                                    </span>
+                                    <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">C . {{$item->pilihan_c}}</span>
+                                </div>
+                                @if ($item->pilihan_d)
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="d" name="jawaban_pg[{{$item->id}}]">
+                                    </span>
+                                    <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">D . {{$item->pilihan_d}}</span>
+                                </div>
+                                @endif
+                                @if ($item->pilihan_e)
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="e" name="jawaban_pg[{{$item->id}}]">
+                                    </span>
+                                    <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">E . {{$item->pilihan_e}}</span>
+                                </div>
+                                @endif
                             @endif
                             {{-- Jabawan Gambar --}}
                             @if ($item->tipe_jawaban == 'gambar')
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="a" name="jawaban_pg[{{$item->id}}]">
-                                </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">A . @if($item->gambar_pilihan_a) <img src="{{url($item->gambar_pilihan_a)}}" width="50%"> @endif </span>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="b" name="jawaban_pg[{{$item->id}}]">
-                                </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">B . @if($item->gambar_pilihan_b) <img src="{{url($item->gambar_pilihan_b)}}" width="50%"> @endif </span>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="c" name="jawaban_pg[{{$item->id}}]">
-                                </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">C . @if($item->gambar_pilihan_c) <img src="{{url($item->gambar_pilihan_c)}}" width="50%"> @endif </span>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="d" name="jawaban_pg[{{$item->id}}]">
-                                </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">D . @if($item->gambar_pilihan_d) <img src="{{url($item->gambar_pilihan_d)}}" width="50%"> @endif </span>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="e" name="jawaban_pg[{{$item->id}}]">
-                                </span>
-                                <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">E . @if($item->gambar_pilihan_e) <img src="{{url($item->gambar_pilihan_e)}}" width="50%"> @endif </span>
-                            </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="a" name="jawaban_pg[{{$item->id}}]">
+                                    </span>
+                                    <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">A . @if($item->gambar_pilihan_a) <img src="{{url($item->gambar_pilihan_a)}}" width="50%"> @endif </span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="b" name="jawaban_pg[{{$item->id}}]">
+                                    </span>
+                                    <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">B . @if($item->gambar_pilihan_b) <img src="{{url($item->gambar_pilihan_b)}}" width="50%"> @endif </span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="c" name="jawaban_pg[{{$item->id}}]">
+                                    </span>
+                                    <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">C . @if($item->gambar_pilihan_c) <img src="{{url($item->gambar_pilihan_c)}}" width="50%"> @endif </span>
+                                </div>
+                                @if ($item->gambar_pilihan_d)
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="d" name="jawaban_pg[{{$item->id}}]">
+                                    </span>
+                                    <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">D . @if($item->gambar_pilihan_d) <img src="{{url($item->gambar_pilihan_d)}}" width="50%"> @endif </span>
+                                </div>
+                                @endif
+                                @if ($item->gambar_pilihan_e)
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <input type="radio" data-no="{{$no}}" onchange="diisi({{$no}})" value="e" name="jawaban_pg[{{$item->id}}]">
+                                    </span>
+                                    <span class="input-group-addon" style="width: 100%;text-align:left" id="basic-addon1">E . @if($item->gambar_pilihan_e) <img src="{{url($item->gambar_pilihan_e)}}" width="50%"> @endif </span>
+                                </div>
+                                @endif
                             @endif
                         </div>
 
