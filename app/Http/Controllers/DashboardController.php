@@ -18,6 +18,7 @@ class DashboardController extends Controller
         // else
         //     dd('tamat');
         if(cb()->session()->roleId() == 2)
-            return view("wargabelajar.upload_foto", $data);
+            return view("wargabelajar.dashboard", $data);
+        return view("admin.dashboard", $data);
     }
 }

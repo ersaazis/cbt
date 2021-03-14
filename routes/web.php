@@ -23,4 +23,6 @@ Route::group(['middleware' => ['web'], 'namespace' => '\App\Http\Controllers\Cru
 Route::group(['middleware' => ['web'], 'prefix' => cb()->getAdminPath(), 'namespace' => '\App\Http\Controllers'], function () {
     cb()->routeGet('/ujian', "UjianController@index");
     cb()->routePost('/ujian', "UjianController@simpan");
+    cb()->routeGet('/update', "TerakhirOnlineController@update");
+    cb()->routeGet('/cek/{id}', "TerakhirOnlineController@cek");
 });

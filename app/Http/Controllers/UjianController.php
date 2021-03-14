@@ -14,11 +14,12 @@ use Illuminate\Http\Request;
 class UjianController extends Controller
 {
     public function index(){
-        $jadwal=JadwalUjian::where('paket_ujian_id',cb()->session()->user()->paket_ujian_id)->where('tanggal','<',Carbon::now())->first();
+        $jadwal=JadwalUjian::where('paket_ujian_id',cb()->session()->user()->paket_ujian_id)->where('tanggal','<=',Carbon::now()->format('Y-m-d H:i:s'))->where('tanggal','>=',Carbon::now()->subMinute(30)->format('Y-m-d H:i:s'))->first();
+        // dd($jadwal);
         if($jadwal){
             $jurusan=$jadwal->mapel->jurusan;
             if($jurusan == cb()->session()->user()->jurusan or $jurusan == null){
-                if(Carbon::make($jadwal->tanggal)->addMinutes(30) > Carbon::now()){
+                // if(Carbon::make($jadwal->tanggal)->addMinutes(30) >= Carbon::now()){
                     $data = [];
                     $data['page_title'] = "Ujian ".$jadwal->mapel->nama;
                     if(RapotUser::where('mapel_id',$jadwal->mapel_id)->where('user_id',cb()->session()->id())->count() == 0){
@@ -28,7 +29,7 @@ class UjianController extends Controller
                         $data['essai'] = (SoalEssai::where('paket_ujian_id',cb()->session()->user()->paket_ujian_id)->where('mapel_id',$jadwal->mapel->id)->inRandomOrder()->get());
                         return view("ujian.soal", $data);
                     } else return cb()->redirect(cb()->getAdminPath(),'Anda sudah menyalesaikan ujian '.$jadwal->mapel->nama.' hari ini');
-                } else return cb()->redirect(cb()->getAdminPath(),'Tidak ada jadwal ujian saat ini');
+                // } else return cb()->redirect(cb()->getAdminPath(),'Tidak ada jadwal ujian saat ini');
             } else return cb()->redirect(cb()->getAdminPath(),'Tidak ada jadwal ujian saat ini');
         } else return cb()->redirect(cb()->getAdminPath(),'Waktu ujian telah selesai');
     }
@@ -75,14 +76,15 @@ class UjianController extends Controller
                 'nilai'=>$nilai,
                 // 'photo'=>$photo,
             ]);
-            $data = [];
-            $data['page_title'] = "Hasil Ujian";
-            $data['benar'] = $benar;
-            $data['salah'] = $total-$benar;
-            $data['total'] = $total;
-            $data['nilai'] = $nilai;
-            $data['mapel'] = Mapel::find($mapel_id)->nama;
-            return view('ujian.nilai',$data);
+            return cb()->redirect(cb()->getAdminPath(),'Selamat, '.cb()->session()->name().' Anda telah menyelesaikan ujian '.Mapel::find($mapel_id)->nama);
+            // $data = [];
+            // $data['page_title'] = "Hasil Ujian";
+            // $data['benar'] = $benar;
+            // $data['salah'] = $total-$benar;
+            // $data['total'] = $total;
+            // $data['nilai'] = $nilai;
+            // $data['mapel'] = Mapel::find($mapel_id)->nama;
+            // return view('ujian.nilai',$data);
         } else return cb()->redirect(cb()->getAdminPath(),'Anda sudah menyalesaikan ujian hari ini');
     }
 }

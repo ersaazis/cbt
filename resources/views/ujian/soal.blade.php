@@ -208,6 +208,13 @@
 @endsection
 @push('bottom')
     <script>
+    setInterval(function() {
+        $.get( "/cbt/update/");
+    }, 5 * 1000);
+    </script>
+@endpush
+@push('bottom')
+    <script>
         $('#button_soal_1').addClass('active');
         $('#soal_1').show();
         var d_ragu_status=[];

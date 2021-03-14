@@ -17,19 +17,43 @@ class AdminMataPelajaranController extends CBController {
 		$this->addSelectOption("Jurusan","jurusan")->options(['IPA'=>'IPA','IPS'=>'IPS',null=>'Tidak Ada']);
 		
         $this->addText('Soal PG','id')->indexDisplayTransform(function($mapel_id) {
-            $soal=SoalPg::where('mapel_id',$mapel_id)->count();
-            return $soal;
+            $soalA=SoalPg::where('mapel_id',$mapel_id)->where('paket_ujian_id',1)->count();
+            $soalB=SoalPg::where('mapel_id',$mapel_id)->where('paket_ujian_id',2)->count();
+            $soalC=SoalPg::where('mapel_id',$mapel_id)->where('paket_ujian_id',3)->count();
+            return "
+            Paket A : $soalA <br>
+            Paket B : $soalB <br>
+            Paket C : $soalC <br>
+            ";
         })->detailDisplayTransform(function($mapel_id) {
-            $soal=SoalPg::where('mapel_id',$mapel_id)->count();
-            return $soal;
+            $soalA=SoalPg::where('mapel_id',$mapel_id)->where('paket_ujian_id',1)->count();
+            $soalB=SoalPg::where('mapel_id',$mapel_id)->where('paket_ujian_id',2)->count();
+            $soalC=SoalPg::where('mapel_id',$mapel_id)->where('paket_ujian_id',3)->count();
+            return "
+            Paket A : $soalA <br>
+            Paket B : $soalB <br>
+            Paket C : $soalC <br>
+            ";
         })->showEdit(false)->showAdd(false)->defaultValue(null);
 
         $this->addText('Soal Essai','id')->indexDisplayTransform(function($mapel_id) {
-            $soal=SoalEssai::where('mapel_id',$mapel_id)->count();
-            return $soal;
+            $soalA=SoalEssai::where('mapel_id',$mapel_id)->where('paket_ujian_id',1)->count();
+            $soalB=SoalEssai::where('mapel_id',$mapel_id)->where('paket_ujian_id',2)->count();
+            $soalC=SoalEssai::where('mapel_id',$mapel_id)->where('paket_ujian_id',3)->count();
+            return "
+            Paket A : $soalA <br>
+            Paket B : $soalB <br>
+            Paket C : $soalC <br>
+            ";
         })->detailDisplayTransform(function($mapel_id) {
-            $soal=SoalEssai::where('mapel_id',$mapel_id)->count();
-            return $soal;
+            $soalA=SoalEssai::where('mapel_id',$mapel_id)->where('paket_ujian_id',1)->count();
+            $soalB=SoalEssai::where('mapel_id',$mapel_id)->where('paket_ujian_id',2)->count();
+            $soalC=SoalEssai::where('mapel_id',$mapel_id)->where('paket_ujian_id',3)->count();
+            return "
+            Paket A : $soalA <br>
+            Paket B : $soalB <br>
+            Paket C : $soalC <br>
+            ";
         })->showEdit(false)->showAdd(false)->defaultValue(null);
 
         $this->addSubModule("Pilihan Ganda", AdminSoalPgController::class, "mapel_id", function ($row) {
@@ -39,7 +63,7 @@ class AdminMataPelajaranController extends CBController {
             ];
         });
 
-        $this->addSubModule("Essai", AdminSoalPgController::class, "mapel_id", function ($row) {
+        $this->addSubModule("Essai", AdminSoalEssaiController::class, "mapel_id", function ($row) {
             return [
               "ID"=> $row->primary_key,
               "Nama"=> $row->nama
