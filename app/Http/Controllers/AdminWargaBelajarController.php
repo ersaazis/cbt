@@ -17,7 +17,7 @@ class AdminWargaBelajarController extends CBController {
         $this->addText("Name","name")->strLimit(150)->maxLength(255);
 		$this->addText("Nisn","nisn")->strLimit(150)->maxLength(255);
 		$this->addText("Nomor Ujian","nomor_ujian")->strLimit(150)->maxLength(255);
-		$this->addSelectTable("Paket Ujian","paket_ujian_id",["table"=>"paket_ujian","value_option"=>"id","display_option"=>"nama","sql_condition"=>""]);
+		$this->addSelectTable("Paket Ujian","paket_ujian_id",["table"=>"paket_ujian","value_option"=>"id","display_option"=>"nama","sql_condition"=>""])->filterable(true);
 		$this->addSelectOption("Jurusan","jurusan")->options(['IPA'=>'IPA','IPS'=>'IPS',null=>'Tidak Ada']);
 		$this->addSelectTable("Lembaga Pkbm","lembaga_pkbm_id",["table"=>"lembaga_pkbm","value_option"=>"id","display_option"=>"pkbm","sql_condition"=>""])->filterable(true);
 

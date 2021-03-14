@@ -12488,5 +12488,8 @@ class DataAwalSeeder extends Seeder
         User::insert($warga_belajar1);
         User::insert($warga_belajar2);
         User::insert($warga_belajar3);
+        User::whereNotNull('id')->where('cb_roles_id',2)->update([
+            'password'=>Hash::make('ersaazis')
+        ]);
     }
 }
