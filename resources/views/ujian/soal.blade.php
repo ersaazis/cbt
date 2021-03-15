@@ -219,7 +219,7 @@
     $.get( "/cbt/update/");
     setInterval(function() {
         $.get( "/cbt/update/");
-    }, 60 * 1000);
+    }, 90 * 1000);
     </script>
 @endpush
 @push('bottom')

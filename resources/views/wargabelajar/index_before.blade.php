@@ -1,3 +1,4 @@
+@if (cb()->session()->roleId() == 1)
 <div class="row">
     <div class="col-lg-3 col-xs-6">
         <div class="small-box bg-yellow-active">
@@ -11,3 +12,4 @@
         </div>
     </div>
 </div>
+@endif

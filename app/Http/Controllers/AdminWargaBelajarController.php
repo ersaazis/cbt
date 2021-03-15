@@ -65,7 +65,7 @@ class AdminWargaBelajarController extends CBController {
                 $.get( "/cbt/persentase", function( data ) {
                     $("#LoginWarga").html(data);
                 });
-            }, 5 * 1000);
+            }, 90 * 1000);
             ';
         });
     }
