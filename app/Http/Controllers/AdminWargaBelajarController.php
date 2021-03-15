@@ -75,6 +75,7 @@ class AdminWargaBelajarController extends CBController {
             $return.='
                 $("#infoGrafis").html("");
             }, 90 * 1000);
+            $("#infoGrafis").html("");
             ';
 
             return $return;
