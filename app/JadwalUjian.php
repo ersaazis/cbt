@@ -32,5 +32,8 @@ class JadwalUjian extends Model
      * @var array
      */
     protected $fillable = ['mapel_id', 'paket_ujian_id', 'tanggal', 'created_at', 'updated_at'];
-
+    public function mapel()
+    {
+        return $this->belongsTo('App\Mapel');
+    }
 }
