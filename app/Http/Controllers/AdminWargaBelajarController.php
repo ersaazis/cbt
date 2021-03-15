@@ -50,10 +50,7 @@ class AdminWargaBelajarController extends CBController {
         });
         $this->setBeforeIndexTable(view('wargabelajar.index_before')->render());
         $this->javascript(function(){
-            return '
-            $.get( "/cbt/persentase", function( data ) {
-                $("#LoginWarga").html(data);
-            });
+            $return='
             setInterval(function() {
                 $(".status").each(function(){
                     var id=$(this).attr("data-id");
@@ -62,11 +59,25 @@ class AdminWargaBelajarController extends CBController {
                         $button.html(data);
                     });
                 });
+
+            ';
+            if(cb()->session()->roleId() == 1)
+            $return.='
                 $.get( "/cbt/persentase", function( data ) {
                     $("#LoginWarga").html(data);
                 });
             }, 90 * 1000);
+            $.get( "/cbt/persentase", function( data ) {
+                $("#LoginWarga").html(data);
+            });
+';
+            else
+            $return.='
+                $("#infoGrafis").html("");
+            }, 90 * 1000);
             ';
+
+            return $return;
         });
     }
 }
