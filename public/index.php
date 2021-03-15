@@ -1,5 +1,5 @@
 <?php
-$awal=memory_get_usage();
+// $awal=memory_get_usage();
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
@@ -59,5 +59,5 @@ $response->send();
 
 $kernel->terminate($request, $response);
 
-$akhir=memory_get_usage();
-echo $akhir-$awal;
+// $akhir=memory_get_usage();
+// echo $akhir-$awal;
