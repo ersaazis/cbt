@@ -16,7 +16,7 @@ class AdminJadwalUjianController extends CBController {
 		$this->addDatetime("Tanggal","tanggal")->filterable(true)->format('Y-m-d H:i:s');
 		
         $this->setBeforeIndexTable('
-        <div class="alert bg-navy" role="alert"><i class="glyphicon glyphicon-warning-sign"></i> Keterlambatan Login Maximal 30 menit dari jadwal</div>
+        <div class="alert bg-navy" role="alert"><i class="glyphicon glyphicon-warning-sign"></i> Keterlambatan Login Maximal 60 menit dari jadwal</div>
         ');
     }
 }

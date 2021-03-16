@@ -67,7 +67,7 @@ class AdminAuthController extends \ersaazis\cb\controllers\AdminAuthController
                 return redirect(cb()->getAdminUrl());
             } else {
                 $this->incrementFailedLogin();
-                return redirect(url("wb/login"))->with(['message'=>"NISN Salah, Pastikan Email anda telah diverifikasi.",'message_type'=>'warning']);
+                return redirect(url("wb/login"))->with(['message'=>"NISN Salah",'message_type'=>'warning']);
             }
         }catch (CBValidationException $e) {
             return cb()->redirect(url("wb/login"),$e->getMessage(),'warning');

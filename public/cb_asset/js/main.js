@@ -35,7 +35,8 @@
 		    $(".datepicker").each(function () {
                 $(this).datetimepicker({
                     timepicker: false,
-                    format: $(this).data("format")
+                    format: $(this).data("format"),
+                    step: 30
                 })
             });
 		}
@@ -43,7 +44,8 @@
 		if($(".datetimepicker").length > 0) {
 			$(".datetimepicker").each(function () {
                 $(this).datetimepicker({
-                    format: $(this).data("format")
+                    format: $(this).data("format"),
+                    step: 30
                 })
             });
 		}

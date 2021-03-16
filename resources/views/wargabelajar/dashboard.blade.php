@@ -18,6 +18,14 @@
                         <th>Nomor Ujian</th>
                         <td>{{ cb()->session()->user()->nomor_ujian }}</td>
                     </tr>
+                    <tr>
+                        <th>PKBM</th>
+                        <td>{{ cb()->session()->user()->lembagaPkbm->pkbm }}</td>
+                    </tr>
+                    <tr>
+                        <th>NPSN</th>
+                        <td>{{ cb()->session()->user()->lembagaPkbm->npsn }}</td>
+                    </tr>
                     @if (cb()->session()->user()->jurusan)
                     <tr>
                         <th>Jurusan</th>

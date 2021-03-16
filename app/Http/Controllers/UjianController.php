@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 class UjianController extends Controller
 {
     public function index(){
-        $jadwal=JadwalUjian::where('paket_ujian_id',cb()->session()->user()->paket_ujian_id)->where('tanggal','<=',Carbon::now()->format('Y-m-d H:i:s'))->where('tanggal','>=',Carbon::now()->subMinute(30)->format('Y-m-d H:i:s'))->first();
+        $jadwal=JadwalUjian::where('paket_ujian_id',cb()->session()->user()->paket_ujian_id)->where('tanggal','<=',Carbon::now()->format('Y-m-d H:i:s'))->where('tanggal','>=',Carbon::now()->subMinute(60)->format('Y-m-d H:i:s'))->first();
         // dd($jadwal);
         if($jadwal){
             $jurusan=$jadwal->mapel->jurusan;
