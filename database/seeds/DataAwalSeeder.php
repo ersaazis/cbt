@@ -1737,7 +1737,6 @@ class DataAwalSeeder extends Seeder
         $warga_belajar2[]=['nisn'=>'3850727840','name'=>'Santi Yulianti','nomor_ujian'=>'B - 02 - 17 - 053 - 014','lembaga_pkbm_id'=>'59','cb_roles_id'=>2,'paket_ujian_id'=>2];
         $warga_belajar2[]=['nisn'=>'2868281198','name'=>'Yaya Sunar','nomor_ujian'=>'B - 02 - 17 - 053 - 015','lembaga_pkbm_id'=>'59','cb_roles_id'=>2,'paket_ujian_id'=>2];
         $warga_belajar2[]=['nisn'=>'3770289186','name'=>'Mahpudin','nomor_ujian'=>'B - 02 - 17 - 053 - 016','lembaga_pkbm_id'=>'59','cb_roles_id'=>2,'paket_ujian_id'=>2];
-        $warga_belajar2[]=['nisn'=>'3851235836','name'=>'Suyatno','nomor_ujian'=>'B - 02 - 17 - 053 - 017','lembaga_pkbm_id'=>'59','cb_roles_id'=>2,'paket_ujian_id'=>2];
         $warga_belajar2[]=['nisn'=>'3904125653','name'=>'Rika Sartika','nomor_ujian'=>'B - 02 - 17 - 053 - 018','lembaga_pkbm_id'=>'59','cb_roles_id'=>2,'paket_ujian_id'=>2];
         $warga_belajar2[]=['nisn'=>'3806127713','name'=>'Undang Wahyudin','nomor_ujian'=>'B - 02 - 17 - 053 - 019','lembaga_pkbm_id'=>'59','cb_roles_id'=>2,'paket_ujian_id'=>2];
         $warga_belajar2[]=['nisn'=>'0067334290','name'=>'Muhammad Kaﬁ','nomor_ujian'=>'B - 02 - 17 - 053 - 020','lembaga_pkbm_id'=>'59','cb_roles_id'=>2,'paket_ujian_id'=>2];
